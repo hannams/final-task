@@ -1,4 +1,4 @@
-import { FETCH_USERS, ADD_USER } from "./actionList";
+import { FETCH_USERS, ADD_USER, UPDATE_USER } from "./actionList";
 
 export function fetchUsers(users) {
   return {
@@ -10,6 +10,13 @@ export function fetchUsers(users) {
 export function addUser(user) {
   return {
     type: ADD_USER,
+    payload: user
+  }
+}
+
+export function updateUser(user) {
+  return {
+    type: UPDATE_USER,
     payload: user
   }
 }

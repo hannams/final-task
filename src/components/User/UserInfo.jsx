@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 function UserInfo({ user }) {
   return (
@@ -35,5 +36,9 @@ function UserInfo({ user }) {
     </div>
   );
 }
+
+UserInfo.propTypes = {
+  user: PropTypes.object.isRequired
+} 
 
 export default UserInfo;

@@ -3,6 +3,7 @@ import { findUserById } from "../../api/searchUsers";
 import getPropertyValue from "../../api/getPropertyValue";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 function UserProfile({ user, id }) {
 
@@ -13,10 +14,7 @@ function UserProfile({ user, id }) {
       </div>
       <div className='card-body user-profile'>
         <div>
-          <p className='card-text'>
-            <span>Username: </span>
-            {user.username}
-          </p>
+          
           <p className='card-text'>
             <span>Phone: </span>
             {user.phone}
@@ -33,8 +31,8 @@ function UserProfile({ user, id }) {
           </p>
         </div>
         <div  className='link btn-group'>
-        <button className='btn btn-secondary'><Link to='/home' className='text-white'>Get back</Link></button>
-        <button className='btn btn-primary'><Link to={() => `/edit/${id}`} className='text-white'>Edit profile</Link></button>
+          <Link to='/home' className='btn btn-secondary text-white'>Get back</Link>
+        <Link to={() => `/edit/${id}`} className='btn btn-primary text-white'>Edit profile</Link>
         </div>
       </div>
     </div>
@@ -45,29 +43,10 @@ const mapStateToProps = (store, { id }) => ({
   user: findUserById(store.users, +id)
 });
 
-/*
-
-"id": 1,
-  "name": "Leanne Graham",
-  "username": "Bret",
-  "email": "Sincere@april.biz",
-  "address": {
-    "street": "Kulas Light",
-    "suite": "Apt. 556",
-    "city": "Gwenborough",
-    "zipcode": "92998-3874",
-    "geo": {
-      "lat": "-37.3159",
-      "lng": "81.1496"
-    }
-  },
-  "phone": "1-770-736-8031 x56442",
-  "website": "hildegard.org",
-  "company": {
-    "name": "Romaguera-Crona",
-    "catchPhrase": "Multi-layered client-server neural-net",
-    "bs": "harness real-time e-markets"
-  }
-*/
+UserProfile.propTypes = {
+  user: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired
+}
 
 export default connect(mapStateToProps)(UserProfile);
+

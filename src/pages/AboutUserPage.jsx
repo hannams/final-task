@@ -5,7 +5,7 @@ import UserProfile from './../components/User/UserProfile'
 
 function AboutUserPage() {
     const { id } = useParams();
-    return <UserProfile id={id}/>
+    return <UserProfile id={+id}/>
 }
 
 

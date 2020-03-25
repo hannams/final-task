@@ -4,6 +4,7 @@ import {  BrowserRouter as Router, Switch, Route, Redirect, } from 'react-router
 import React, { useEffect } from 'react'
 import HomePage from './pages/HomePage';
 import AboutUserPage from './pages/AboutUserPage'
+import EditPage from './pages/EditPage';
 
 const mapStateToProps = state => {
   return {
@@ -30,7 +31,7 @@ function App( { loadUsers } ) {
               <HomePage/>
             </Route>
             <Route path="/edit/:id">
-
+                <EditPage />
             </Route>
             <Route path="/about/:id">
               <AboutUserPage/>
