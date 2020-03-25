@@ -20,7 +20,11 @@ const mapDispatchToProps = dispatch => {
 
 function App( { loadUsers } ) {
   useEffect(() => {
-    loadUsers();
+    try{
+      loadUsers();
+    } catch (e) {
+      console.log(e);
+    }
   }, [loadUsers]);
 
   return (
