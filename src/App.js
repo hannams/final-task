@@ -3,6 +3,7 @@ import { usersFetchData } from './store/actions/userActions'
 import {  BrowserRouter as Router, Switch, Route, Redirect, } from 'react-router-dom';
 import React, { useEffect } from 'react'
 import HomePage from './pages/HomePage';
+import AboutUserPage from './pages/AboutUserPage'
 
 const mapStateToProps = state => {
   return {
@@ -28,11 +29,11 @@ function App( { loadUsers } ) {
             <Route path="/home">
               <HomePage/>
             </Route>
-            <Route path="/edit">
+            <Route path="/edit/:id">
 
             </Route>
-            <Route path="/about">
-
+            <Route path="/about/:id">
+              <AboutUserPage/>
             </Route>
             <Redirect to='/home'/>
           </Switch>

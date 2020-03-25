@@ -22,6 +22,8 @@ Form {
 .card .card-body {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .user-list {
@@ -32,4 +34,11 @@ Form {
 
 .card .card-text span {
   font-weight: bold;
+}
+
+.link {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  margin-right: 10px;
 }

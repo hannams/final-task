@@ -24,10 +24,10 @@ function UserInfo({ user }) {
         </div>
 
         <div>
-          <Link to={userId => `/about/${userId}`} className='card-link'>
+          <Link to={()=> `/about/${user.id}`} className='card-link'>
             View
           </Link>
-          <Link to='/edit' className='card-link'>
+          <Link to={()=> `/edit/${user.id}`} className='card-link'>
             Edit
           </Link>
         </div>
