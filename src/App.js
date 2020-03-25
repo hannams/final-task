@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
+import { usersFetchData } from './store/actions/userActions'
+import {  BrowserRouter as Router, Switch, Route, Redirect, } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import HomePage from './pages/HomePage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const mapStateToProps = state => {
+  return {
+    users: state.users
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    loadUsers: () => dispatch(usersFetchData())
+  }
+}
+
+function App( { loadUsers } ) {
+  useEffect(() => {
+    loadUsers();
+  }, [loadUsers]);
+
+  return (
+      <Router>
+        <div className="container">
+          <Switch>
+            <Route path="/home">
+              <HomePage/>
+            </Route>
+            <Route path="/edit">
+
+            </Route>
+            <Route path="/about">
+
+            </Route>
+            <Redirect to='/home'/>
+          </Switch>
+        </div>
+      </Router>
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
