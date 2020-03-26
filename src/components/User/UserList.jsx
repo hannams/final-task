@@ -24,7 +24,7 @@ const mapStateToProps = store => ({
 
 UserList.propTypes = {
   users: PropTypes.arrayOf(PropTypes.object).isRequired,
-  searchValue: PropTypes.string.isRequired
+  searchValue: PropTypes.string
 }
 
 

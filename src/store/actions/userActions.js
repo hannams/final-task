@@ -25,6 +25,7 @@ export function usersFetchData() {
   return dispatch => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => checkResponse(response))
+      .catch(error => console.log(error))
       .then(json => dispatch(fetchUsers(json)));
   };
 }
