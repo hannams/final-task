@@ -18,7 +18,7 @@ function UserList({ users, searchValue }) {
 }
 
 const mapStateToProps = store => ({
-  users: search(store.users, store.search.value),
+  users: search(store.users, store.search),
   searchValue: store.search.value
 });
 
