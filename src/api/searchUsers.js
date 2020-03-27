@@ -1,10 +1,6 @@
 export function search(users, value) {
 
-    if(value === '') {
-        return []
-    }
-
-    return users.filter(user => 
+       return users.filter(user => 
         user.name.toLowerCase().includes(value)
         )
         .sort((a,b) => a.name > b.name ? 1 : -1)

@@ -14,7 +14,7 @@ function UserEdit({ user, editUser }) {
         <h1 className='card-title text-center'>Edit {user.name}'s profile</h1>
       </div>
       <div className="card-body edit-form">
-          <UserForm user={user} updateUser={editUser} isEditing='true'/>
+          <UserForm user={user} updateUser={editUser} isEditing={true}/>
       </div>
     </div>
   );

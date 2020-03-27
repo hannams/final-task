@@ -4,27 +4,24 @@ import { connect } from "react-redux";
 import { search } from "./../../api/searchUsers";
 import PropTypes from 'prop-types'
 
-function UserList({ users, searchValue }) {
+function UserList({ users }) {
+  const foundUsers = users.map(user => <UserInfo key={user.id} user={user} />)
   return (
     <div className='container'>
       <div className='user-list'>
-        { users &&
-          users.map(user => <UserInfo key={user.id} user={user} />)
-        }
-        { !users.length && searchValue && <h3>No such user!</h3>}
+        { foundUsers }
+        { !foundUsers.length && <h3>No such user!</h3> }
       </div>
     </div>
   );
 }
 
 const mapStateToProps = store => ({
-  users: search(store.users, store.search),
-  searchValue: store.search.value
+  users: search(store.users, store.search)
 });
 
 UserList.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.object).isRequired,
-  searchValue: PropTypes.string
+  users: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 

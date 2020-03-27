@@ -122,10 +122,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 UserForm.propTypes = {
-  user: PropTypes.object.isRequired,
-  addUser: PropTypes.func.isRequired, 
-  updateUser: PropTypes.func.isRequired, 
-  closeForm: PropTypes.func.isRequired, 
+  user: PropTypes.object,
+  addUser: PropTypes.func, 
+  updateUser: PropTypes.func, 
+  closeForm: PropTypes.func, 
   isEditing: PropTypes.bool
 }
 
