@@ -2,10 +2,11 @@ import React from "react";
 import { findUserById } from "../../api/searchUsers";
 import getPropertyValue from "../../api/getPropertyValue";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import PropTypes from 'prop-types'
 
 function UserProfile({ user, id }) {
+  let history = useHistory();
 
   return (
     <div className='card'>
@@ -31,7 +32,7 @@ function UserProfile({ user, id }) {
           </p>
         </div>
         <div  className='link btn-group'>
-          <Link to='/home' className='btn btn-secondary text-white'>Get back</Link>
+          <button className="btn btn-secondary text-white" onClick={() => history.push('/home')}>Get Back</button>
         <Link to={() => `/edit/${id}`} className='btn btn-primary text-white'>Edit profile</Link>
         </div>
       </div>

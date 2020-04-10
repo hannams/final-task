@@ -4,10 +4,11 @@ import { addUser } from "../../store/actions/userActions";
 import { connect } from "react-redux";
 import * as yup from "yup";
 import getPropertyValue from "./../../api/getPropertyValue";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import PropTypes from 'prop-types'
 
 function UserForm({ user, addUser, updateUser, closeForm, isEditing }) {
+   let history = useHistory();
 
   return (
     <Formik
@@ -33,6 +34,7 @@ function UserForm({ user, addUser, updateUser, closeForm, isEditing }) {
         if (isEditing) {
           console.log(values);
           updateUser(values);
+          history.push(`/about/${user.id}`)
         } else {
           addUser(values);
           resetForm();
@@ -98,15 +100,10 @@ function UserForm({ user, addUser, updateUser, closeForm, isEditing }) {
         </div>
 
         <div className='btn-group '>
-            {isEditing && <Link
-              to={() => `/about/${user.id}`}
-              className=' btn btn-secondary text-white'
-            >
-              Get back
-            </Link>}
-          <button type='submit' className='btn btn-success'>
-            Submit
-          </button>
+             <button type='submit' className='btn btn-success'>
+             Submit
+           </button>
+            
         </div>
       </Form>
     </Formik>
