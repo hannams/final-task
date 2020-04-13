@@ -3,11 +3,11 @@ import { useFormik } from 'formik';
 import { searchValue } from './../../store/actions/actions'
 import { connect } from 'react-redux';
 
-function Search({ searchUsers }) {
+function Search({searchValue, searchUsers }) {
 
     const SearchForm = useFormik({
         initialValues: {
-            search: ''
+            search: searchValue
         }
     })
     return (
@@ -31,6 +31,9 @@ function Search({ searchUsers }) {
 const mapDispatchToProps = dispatch => ({
     searchUsers: name => dispatch(searchValue(name.toLowerCase()))
 })
-  
 
-export default connect(null, mapDispatchToProps)(Search);
+const mapStateToProps = (store) => ({
+    searchValue: store.search
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

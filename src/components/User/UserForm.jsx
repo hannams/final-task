@@ -34,7 +34,7 @@ function UserForm({ user, addUser, updateUser, closeForm, isEditing }) {
         if (isEditing) {
           console.log(values);
           updateUser(values);
-          history.push(`/about/${user.id}`)
+          history.push(`/home`)
         } else {
           addUser(values);
           resetForm();
